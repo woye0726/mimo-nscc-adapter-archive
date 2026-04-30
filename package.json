@@ -1,0 +1,206 @@
+{
+  "name": "mimo-nscc-adapter",
+  "displayName": "MiMo & NSCC Copilot Bridge",
+  "description": "A powerful bridge for 5 MiMo & 1 NSCC models in Copilot Chat, supporting dual-protocol routing, vision proxy, and reasoning chain.",
+  "icon": "resources/icon.png",
+  "version": "0.4.0",
+  "publisher": "mimo-user",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mimo-user/mimo-nscc-adapter"
+  },
+  "engines": {
+    "vscode": "^1.116.0",
+    "node": ">=24"
+  },
+  "extensionKind": [
+    "workspace"
+  ],
+  "categories": [
+    "AI",
+    "Chat",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "mimo",
+    "nscc",
+    "xiaomi",
+    "qwen",
+    "copilot",
+    "github copilot",
+    "copilot chat",
+    "openai",
+    "anthropic",
+    "multi-model",
+    "dual-protocol",
+    "vision",
+    "byok",
+    "language model",
+    "thinking",
+    "reasoning",
+    "ai",
+    "chat"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "enabledApiProposals": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languageModelChatProviders": [
+      {
+        "vendor": "mimo-nscc",
+        "displayName": "MiMo & NSCC"
+      }
+    ],
+    "commands": [
+      {
+        "command": "mimo-nscc.setMimoApiKey",
+        "title": "MiMo-NSCC: Set MiMo API Key"
+      },
+      {
+        "command": "mimo-nscc.setNsccApiKey",
+        "title": "MiMo-NSCC: Set NSCC API Key"
+      },
+      {
+        "command": "mimo-nscc.clearMimoApiKey",
+        "title": "MiMo-NSCC: Clear MiMo API Key"
+      },
+      {
+        "command": "mimo-nscc.clearNsccApiKey",
+        "title": "MiMo-NSCC: Clear NSCC API Key"
+      },
+      {
+        "command": "mimo-nscc.getMimoApiKey",
+        "title": "MiMo-NSCC: Get MiMo API Key"
+      },
+      {
+        "command": "mimo-nscc.getNsccApiKey",
+        "title": "MiMo-NSCC: Get NSCC API Key"
+      },
+      {
+        "command": "mimo-nscc.setVisionModel",
+        "title": "MiMo-NSCC: Set Vision Proxy Model"
+      },
+      {
+        "command": "mimo-nscc.openSettings",
+        "title": "MiMo-NSCC: Open Settings"
+      },
+      {
+        "command": "mimo-nscc.showLogs",
+        "title": "MiMo-NSCC: Show Logs"
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "mimoNsccGettingStarted",
+        "title": "MiMo & NSCC Copilot Bridge",
+        "description": "Set up MiMo and NSCC models in Copilot Chat.",
+        "steps": [
+          {
+            "id": "setMimoApiKey",
+            "title": "Set your MiMo API key",
+            "description": "[Get a MiMo API key](https://api.xiaomimimo.com) from Xiaomi.\n[Set MiMo API Key](command:mimo-nscc.setMimoApiKey)",
+            "media": {
+              "markdown": "resources/walkthrough/set-api-key.md"
+            },
+            "completionEvents": [
+              "onCommand:mimo-nscc.setMimoApiKey"
+            ]
+          },
+          {
+            "id": "setNsccApiKey",
+            "title": "Set your NSCC API key",
+            "description": "[Get an NSCC API key](https://maas.nscc-cs.cn).\n[Set NSCC API Key](command:mimo-nscc.setNsccApiKey)",
+            "media": {
+              "markdown": "resources/walkthrough/set-api-key.md"
+            },
+            "completionEvents": [
+              "onCommand:mimo-nscc.setNsccApiKey"
+            ]
+          },
+          {
+            "id": "showModels",
+            "title": "Show MiMo / NSCC models",
+            "description": "If the models are hidden, open VS Code's Language Models manager and show the MiMo-NSCC models.\n[Open Language Models](command:workbench.action.chat.manage)",
+            "media": {
+              "markdown": "resources/walkthrough/show-models.md"
+            }
+          }
+        ]
+      }
+    ],
+    "configuration": {
+      "title": "MiMo-NSCC Copilot",
+      "properties": {
+        "mimo-nscc.mimoApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key for MiMo (Xiaomi). Stored in VS Code SecretStorage via 'Set MiMo API Key' command; use this field only for CI/automation fallback."
+        },
+        "mimo-nscc.nsccApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key for NSCC. Stored in VS Code SecretStorage via 'Set NSCC API Key' command; use this field only for CI/automation fallback."
+        },
+        "mimo-nscc.mimoBaseUrl": {
+          "type": "string",
+          "default": "https://api.xiaomimimo.com/v1",
+          "description": "MiMo API base URL (OpenAI format)."
+        },
+        "mimo-nscc.nsccBaseUrl": {
+          "type": "string",
+          "default": "https://maas.nscc-cs.cn/external/api",
+          "description": "NSCC API base URL (Anthropic format)."
+        },
+        "mimo-nscc.mimoModelId": {
+          "type": "string",
+          "default": "",
+          "description": "API model ID for MiMo requests. Leave empty to use the model ID selected in the picker."
+        },
+        "mimo-nscc.nsccModelId": {
+          "type": "string",
+          "default": "Qwen3.5",
+          "description": "API model ID sent for NSCC requests."
+        },
+        "mimo-nscc.maxTokens": {
+          "type": "number",
+          "default": 0,
+          "minimum": 0,
+          "description": "Maximum number of output tokens per request. Set to 0 to use the API default (no limit)."
+        },
+        "mimo-nscc.visionModel": {
+          "type": "string",
+          "default": "",
+          "description": "Model ID for vision proxy. Leave empty for auto-detection. Use 'MiMo-NSCC: Set Vision Proxy Model' to pick from a list."
+        },
+        "mimo-nscc.visionPrompt": {
+          "type": "string",
+          "editPresentation": "multilineText",
+          "default": "Describe the visual contents of this image in detail, including any text, objects, people, or context that would be relevant for understanding it. Focus on factual visual elements.",
+          "description": "Prompt sent to the vision proxy model when describing image attachments."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "oxlint",
+    "format": "oxfmt --write src/",
+    "format:check": "oxfmt --check src/",
+    "package": "vsce package -o dist/",
+    "publish": "vsce publish",
+    "login": "vsce login mimo-user"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/vscode": "^1.116.0",
+    "@vscode/vsce": "^3.9.1",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
+    "typescript": "^6.0.3"
+  }
+}
