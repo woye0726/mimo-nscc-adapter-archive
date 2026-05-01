@@ -12,7 +12,7 @@ Want MiMo V2.5 Pro's agent performance inside Copilot Chat? Or need NSCC's Qwen3
 
 - **Don't replace Copilot — power it up.** No new sidebar, no new chat UI to learn. Two new model families in the picker you already use.
 - **Two protocols, zero switching.** MiMo speaks OpenAI (`api-key` header). NSCC speaks Anthropic (`x-api-key` header, content‑block SSE events). Both families coexist in the picker — no mode toggle, no reload.
-- **Agent mode, tool calling, instructions, MCP, skills — all of it still works.** Copilot's entire stack, now running on MiMo V2.5 Pro or NSCC Qwen3.5. MiMo V2.5 Pro is benchmarked at 1,868 tool calls in 11.5 hours for non‑trivial software engineering tasks.
+- **Agent mode, tool calling, instructions, MCP, skills — all of it still works.** Copilot's entire stack, now running on MiMo V2.5 Pro or NSCC Qwen3.5.
 - **Native MiMo Vision.** MiMo V2.5 and V2 Omni natively understand images — drop a screenshot and they read it directly. NSCC Qwen3.5 uses a transparent proxy (hands the image to another Copilot model for description). Auto‑routed per model, zero config.
 - **BYOK, pay providers directly.** Your API keys, your bill, your rate limits. MiMo and NSCC each get their own key, stored in the OS keychain, never on disk.
 
