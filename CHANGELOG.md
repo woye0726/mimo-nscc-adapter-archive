@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/woye0726/mimo-nscc-adapter-archive/compare/v0.3.0...v0.4.0) (2026-05-01)
+
+
+### Features
+
+* complete mimo routing fix and branding assets (v0.4.0) ([c530a40](https://github.com/woye0726/mimo-nscc-adapter-archive/commit/c530a40ebcf66aedff603d833d2ad4ce4348c968))
+
 ## [0.4.0](https://github.com/mimo-user/mimo-nscc-adapter/compare/v0.3.0...v0.4.0) (2026-04-30)
 
 ### Breaking — Rebrand & Dual‑Protocol Architecture
