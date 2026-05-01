@@ -4,9 +4,7 @@
 
 **Pick MiMo & NSCC from the Copilot Chat model picker — and keep everything else Copilot already gives you.**
 
-<p align="center">
-  <em>📸 Screenshot placeholder — add a screenshot of the Copilot Chat model picker showing MiMo and NSCC models.</em>
-</p>
+
 
 Want MiMo V2.5 Pro's agent performance — 672 tool calls, SysY compiler in 4.3 hours, a perfect 233/233 score — inside Copilot Chat? Or need NSCC's Qwen3.5 via Anthropic protocol? This extension drops **5 MiMo models + NSCC Qwen3.5** straight into the Copilot Chat model selector — with **native MiMo vision**, **thinking mode**, **dual‑protocol routing**, and your own API keys.
 
