@@ -13,7 +13,7 @@ export function getBaseUrl(family: ModelFamily): string {
 	if (family === 'nscc') {
 		return config.get<string>('nsccBaseUrl') || 'https://maas.nscc-cs.cn/external/api';
 	}
-	return config.get<string>('mimoBaseUrl') || 'https://api.xiaomimimo.com/v1';
+	return config.get<string>('mimoBaseUrl') || 'https://token-plan-cn.xiaomimimo.com/v1';
 }
 
 /**
@@ -37,9 +37,16 @@ export function getApiModelId(family: ModelFamily, fallbackId: string): string {
  */
 export function getSettingsApiKey(family: ModelFamily): string | undefined {
 	const config = vscode.workspace.getConfiguration(CONFIG_SECTION);
-	const key = family === 'nscc'
-		? config.get<string>('nsccApiKey')
-		: config.get<string>('mimoApiKey');
+	let key: string | undefined;
+
+	if (family === 'nscc') {
+		key = config.get<string>('nsccApiKey');
+	} else {
+		// 优先读取 adapter-for-copilot 区间的 mimoKey（百万亿计划专属 Key）
+		const legacyConfig = vscode.workspace.getConfiguration('adapter-for-copilot');
+		key = legacyConfig.get<string>('mimoKey') || config.get<string>('mimoApiKey');
+	}
+
 	const trimmed = key?.trim();
 	if (trimmed) {
 		const label = family === 'nscc' ? 'NSCC' : 'MiMo';

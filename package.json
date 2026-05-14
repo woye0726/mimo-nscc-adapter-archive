@@ -146,8 +146,8 @@
         },
         "mimo-nscc.mimoBaseUrl": {
           "type": "string",
-          "default": "https://api.xiaomimimo.com/v1",
-          "description": "MiMo API base URL (OpenAI format)."
+          "default": "https://token-plan-cn.xiaomimimo.com/v1",
+          "description": "MiMo API base URL (OpenAI format) — 百万亿计划专属网关."
         },
         "mimo-nscc.nsccBaseUrl": {
           "type": "string",

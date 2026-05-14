@@ -61,7 +61,7 @@ export class MiMoNSCCClient {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
-					'api-key': this.apiKey,
+					'Authorization': `Bearer ${this.apiKey}`,
 				},
 				body: JSON.stringify(requestBody),
 				signal: controller.signal,
@@ -424,12 +424,12 @@ function _showErrorGuidance(status: number, message: string, family: ModelFamily
 		if (status === 401) {
 			void vscode.window
 				.showErrorMessage(
-					'MiMo 鉴权失败 (401)。请检查 API Key 是否正确。运行 "MiMo-NSCC: Set MiMo API Key" 重新设置。',
+					'鉴权失败，请检查是否在设置中正确填写了「百万亿计划」专属 Key 且 Base URL 已切换为专属网关。',
 					'Open Settings',
 				)
 				.then((action: string | undefined) => {
 					if (action === 'Open Settings') {
-						void vscode.commands.executeCommand('workbench.action.openSettings', 'mimo-nscc.mimoApiKey');
+						void vscode.commands.executeCommand('workbench.action.openSettings', 'mimo-nscc.mimoBaseUrl');
 					}
 				});
 			return;
