@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.0](https://github.com/woye0726/mimo-nscc-adapter-archive/compare/v0.3.0...v0.4.0) (2026-05-14)
+
+
+### Features
+
+* complete mimo routing fix and branding assets (v0.4.0) ([c530a40](https://github.com/woye0726/mimo-nscc-adapter-archive/commit/c530a40ebcf66aedff603d833d2ad4ce4348c968))
+
+
+### Bug Fixes
+
+* 更新 Base URL 为百万亿计划专属网关，修复 401 鉴权 ([4ad0b52](https://github.com/woye0726/mimo-nscc-adapter-archive/commit/4ad0b523a42a02bdfaca383236ada4af2f026e0c))
+
 ## [0.4.0](https://github.com/mimo-user/mimo-nscc-adapter/compare/v0.3.0...v0.4.0) (2026-04-30)
 
 ### Breaking — Rebrand & Dual‑Protocol Architecture
